@@ -22,8 +22,6 @@ public class SavePerson {
             personOne.setLastName("van der Kruk");
             personOne.setAge(31);
             personOne.setGender(GenderType.MALE);
-            personOne.setBirthDay(1989-07-26);
-
 
             em.persist(personOne);
             tx.commit();
