@@ -37,10 +37,12 @@ public class Person {
 
     @Lob
     @Column(nullable = true, name="PICTURE")
+    @Basic(fetch = FetchType.LAZY)
     private byte[] picture;
 
     @Lob
     @Column(name="COMMNT")
+    @Basic(fetch = FetchType.LAZY)
     private String comment;
 
     @Basic(optional = false)
@@ -51,7 +53,6 @@ public class Person {
     private String homepage;
 
     // Getters and Setters
-
     public long getId() {
         return id;
     }
