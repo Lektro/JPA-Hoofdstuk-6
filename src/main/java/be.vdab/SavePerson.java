@@ -45,7 +45,7 @@ public class SavePerson {
             personTwo.setLastName("Van Koeckhoven");
             personTwo.setAge(31);
             personTwo.setGender(GenderType.FEMALE);
-            personTwo.setBirthDay(LocalDate.of(1989,05,21));
+            personTwo.setBirthDay(LocalDate.of(1989,06,05));
             personTwo.setComment("Sorry Syd I made you a woman today!");
             // personTwo.isMarried();
             personTwo.setHomepage("www.google.be");
