@@ -28,6 +28,7 @@ public class Person {
     // Getters and Setters
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="ID")
     public long getId() {
         return id;
     }
@@ -38,6 +39,7 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="VERSION")
     public long getVersion() {
         return version;
     }
@@ -46,6 +48,7 @@ public class Person {
         this.version = version;
     }
 
+    @Column(name="FIRST_NAME")
     public String getFirstName() {
         return firstName;
     }
@@ -54,6 +57,7 @@ public class Person {
         this.firstName = firstName;
     }
 
+    @Column(name="LAST_NAME")
     public String getLastName() {
         return lastName;
     }
@@ -63,6 +67,7 @@ public class Person {
     }
 
     @Transient
+    @Column(name="BIRTHDAY")
     public int getAge() {
         LocalDate now = LocalDate.now();
         int age = Math.toIntExact(ChronoUnit.YEARS.between(now, birthDay));
@@ -83,6 +88,7 @@ public class Person {
 
     @Id
     @Enumerated(EnumType.STRING)
+    @Column(name="GENDER")
     public GenderType getGender() {
         return gender;
     }
@@ -92,7 +98,7 @@ public class Person {
     }
 
     @Lob
-    @Column(nullable = true)
+    @Column(nullable = true, name="PICTURE")
     public byte[] getPicture() {
         return picture;
     }
@@ -101,6 +107,8 @@ public class Person {
         this.picture = picture;
     }
 
+    @Lob
+    @Column(name="COMMNT")
     public String getComment() {
         return comment;
     }
@@ -110,6 +118,7 @@ public class Person {
     }
 
     @Basic(optional = false)
+    @Column(name="MARRIED")
     public boolean isMarried() {
         return married;
     }
@@ -118,6 +127,7 @@ public class Person {
         this.married = married;
     }
 
+    @Column(name="HOMEPAGE")
     public String getHomepage() {
         return homepage;
     }
