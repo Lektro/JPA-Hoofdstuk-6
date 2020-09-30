@@ -1,5 +1,7 @@
 package be.vdab;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -13,7 +15,7 @@ public class Person {
     @Column(name="ID")
     private long id;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name="VERSION")
     private long version;
 
@@ -67,6 +69,7 @@ public class Person {
 
     @Basic(optional = false)
     @Column(name="MARRIED")
+    @Convert(converter = BooleanConverter.class)
     private boolean married;
 
     @Column(name="HOMEPAGE")
@@ -145,7 +148,7 @@ public class Person {
     public void setComment(String comment) {
         this.comment = comment;
     }
-
+    @Type(type="yes_no")
     public boolean isMarried() {
         return married;
     }
@@ -174,4 +177,5 @@ public class Person {
     public int hashCode() {
         return Objects.hash(getId());
     }
+
 }
