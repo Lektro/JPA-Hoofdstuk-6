@@ -96,7 +96,6 @@ public class Person {
         this.age = age;
     }
 
-
     public LocalDate getBirthDay() {
         return birthDay;
     }
@@ -104,7 +103,6 @@ public class Person {
     public void setBirthDay(LocalDate birthDay) {
         this.birthDay = birthDay;
     }
-
 
     public GenderType getGender() {
         return gender;
