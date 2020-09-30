@@ -20,7 +20,7 @@ public class SavePerson {
             personOne.setFirstName("Kevin");
             personOne.setLastName("van der Kruk");
             personOne.setAge(31);
-            em.persist(personOne);
+
 
             tx.commit();
             System.out.println("Person Saved");
