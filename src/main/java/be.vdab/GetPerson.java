@@ -10,19 +10,20 @@ public class GetPerson {
         EntityManagerFactory emf = null;
         EntityManager em = null;
         try {
-            emf = Persistence.createEntityManagerFactory("mysqlcontainer");
+            emf = Persistence.createEntityManagerFactory("read");
             em = emf.createEntityManager();
             EntityTransaction tx = em.getTransaction();
             tx.begin();
-            Person visitor = em.find(Person.class, 1L);
-            Person visitor1 = em.find(Person.class, 2L);
-            System.out.println(visitor.getId());
-            System.out.println(visitor.getVersion());
-            System.out.println(visitor.getAge());
-            System.out.println(visitor.getBirthDay());
-            System.out.println(visitor.getFirstName());
-            System.out.println(visitor.getLastName());
-            System.out.println(visitor.getComment());
+            Person p = em.find(Person.class, 1L);
+           // Person visitor1 = em.find(Person.class, 2L);
+            System.out.println(p.getId());
+            System.out.println(p.getVersion());
+            System.out.println(p.getAge());
+            System.out.println(p.getBirthDay());
+            System.out.println(p.getFirstName());
+            System.out.println(p.getLastName());
+            System.out.println(p.getComment());
+            System.out.println(p.getAddress());
 
             tx.commit();
         } finally {

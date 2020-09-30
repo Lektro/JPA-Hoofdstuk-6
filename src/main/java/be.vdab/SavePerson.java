@@ -12,7 +12,7 @@ public class SavePerson {
         EntityManager em = null;
 
         try {
-            emf = Persistence.createEntityManagerFactory("mysqlcontainer");
+            emf = Persistence.createEntityManagerFactory("create");
             em = emf.createEntityManager();
             EntityTransaction tx = em.getTransaction();
             tx.begin();
@@ -26,6 +26,9 @@ public class SavePerson {
             personOne.setComment("Still need to upload a picture, it ain't over yet!");
             personOne.isMarried();
             personOne.setHomepage("www.ferienwohnungmosea.de");
+
+            // Set address
+            //personOne.setAddress("Kappellensteenweg, 380 , 2920, Kalmthout, Belgium");
 
             Person personTwo = new Person();
 

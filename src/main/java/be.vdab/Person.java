@@ -27,6 +27,19 @@ public class Person {
     @Column(name="AGE")
     private int age;
 
+    //EMBED ADDRESS
+
+    private Address address = new Address();
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+
     //@Temporal(TemporalType.DATE)
     @Column(name="BIRTHDAY")
     private LocalDate birthDay;
@@ -41,6 +54,7 @@ public class Person {
     private byte[] picture;
 
     @Lob
+    // COMMENT is in bepaalde DB een reserved Keywoord vandaar COMMNT
     @Column(name="COMMNT")
     @Basic(fetch = FetchType.LAZY)
     private String comment;
@@ -153,5 +167,8 @@ public class Person {
     @Override
     public int hashCode() {
         return Objects.hash(getId());
+    }
+
+    public void setAddress(String kap) {
     }
 }
