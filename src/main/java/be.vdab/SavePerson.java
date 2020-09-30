@@ -24,12 +24,21 @@ public class SavePerson {
             personOne.setGender(GenderType.MALE);
             personOne.setBirthDay(LocalDate.of(1989,07,26));
             personOne.setComment("Still need to upload a picture, it ain't over yet!");
+
+            // Needs conversion?
             personOne.isMarried();
             personOne.setHomepage("www.ferienwohnungmosea.de");
 
-            // Set address
-            //personOne.setAddress("Kappellensteenweg, 380 , 2920, Kalmthout, Belgium");
+            // Set address not working
+            Address a = new Address();
+            a.setStreet("Kapellensteenweg");
+            a.setNumber("380/2");
+            a.setCity("Kalmthout");
+            a.setZipCode("2920");
+            a.setCountry("Belgium");
+            personOne.setAddress(a);
 
+            // second person without address
             Person personTwo = new Person();
 
             personTwo.setFirstName("Sydney ");

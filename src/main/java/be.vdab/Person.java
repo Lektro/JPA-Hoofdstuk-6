@@ -2,7 +2,6 @@ package be.vdab;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 @Entity
@@ -28,7 +27,15 @@ public class Person {
     private int age;
 
     //EMBED ADDRESS
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name ="street", column = @Column(name = "ADDRESS_STREET")),
+            @AttributeOverride(name ="number", column = @Column(name = "ADDRESS_NUMBER")),
+            @AttributeOverride(name ="zipCode", column = @Column(name = "ADDRESS_ZIPCODE")),
+            @AttributeOverride(name ="city", column = @Column(name = "ADDRESS_CITY")),
+            @AttributeOverride(name ="country", column = @Column(name = "ADDRESS_COUNTRY")),
 
+    })
     private Address address = new Address();
 
     public Address getAddress() {
@@ -38,7 +45,6 @@ public class Person {
     public void setAddress(Address address) {
         this.address = address;
     }
-
 
     //@Temporal(TemporalType.DATE)
     @Column(name="BIRTHDAY")
@@ -53,8 +59,8 @@ public class Person {
     @Basic(fetch = FetchType.LAZY)
     private byte[] picture;
 
-    @Lob
     // COMMENT is in bepaalde DB een reserved Keywoord vandaar COMMNT
+    @Lob
     @Column(name="COMMNT")
     @Basic(fetch = FetchType.LAZY)
     private String comment;
@@ -167,8 +173,5 @@ public class Person {
     @Override
     public int hashCode() {
         return Objects.hash(getId());
-    }
-
-    public void setAddress(String kap) {
     }
 }
