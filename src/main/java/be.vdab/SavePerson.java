@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.time.LocalDate;
 
 public class SavePerson {
     public static void main(String[] args) {
@@ -20,8 +21,11 @@ public class SavePerson {
             personOne.setFirstName("Kevin");
             personOne.setLastName("van der Kruk");
             personOne.setAge(31);
+            personOne.setGender(GenderType.MALE);
+            personOne.setBirthDay(1989-07-26);
 
 
+            em.persist(personOne);
             tx.commit();
             System.out.println("Person Saved");
 

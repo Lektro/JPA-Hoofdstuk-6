@@ -24,11 +24,9 @@ public class Person {
     @Column(name="LAST_NAME")
     private String lastName;
 
-    @Transient
     @Column(name="AGE")
     private int age;
 
-    @Transient
     @Column(name="BIRTHDAY")
     private LocalDate birthDay;
 
@@ -85,6 +83,7 @@ public class Person {
         this.lastName = lastName;
     }
 
+    @Transient
     public int getAge() {
         LocalDate now = LocalDate.now();
         int age = Math.toIntExact(ChronoUnit.YEARS.between(now, birthDay));
