@@ -1,17 +1,15 @@
 package be.vdab;
 
-import net.bytebuddy.asm.Advice;
-
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.util.Objects;
 
 @Entity
 @Table (name ="PERSONS", uniqueConstraints = {@UniqueConstraint(columnNames ="id")})
 public class Person {
 
-    @Id
+
     private long id;
     private long version;
     private String firstName;
@@ -23,7 +21,6 @@ public class Person {
     private String comment;
     private boolean married;
     private String homepage;
-
 
     // Getters and Setters
     @Id
@@ -57,6 +54,7 @@ public class Person {
         this.firstName = firstName;
     }
 
+    @Id
     @Column(name="LAST_NAME")
     public String getLastName() {
         return lastName;
@@ -66,6 +64,7 @@ public class Person {
         this.lastName = lastName;
     }
 
+    @Id
     @Transient
     @Column(name="BIRTHDAY")
     public int getAge() {
@@ -78,6 +77,7 @@ public class Person {
         this.age = age;
     }
 
+    @Id
     public LocalDate getBirthDay() {
         return birthDay;
     }
@@ -97,6 +97,7 @@ public class Person {
         this.gender = gender;
     }
 
+    @Id
     @Lob
     @Column(nullable = true, name="PICTURE")
     public byte[] getPicture() {
@@ -107,6 +108,7 @@ public class Person {
         this.picture = picture;
     }
 
+    @Id
     @Lob
     @Column(name="COMMNT")
     public String getComment() {
@@ -117,6 +119,7 @@ public class Person {
         this.comment = comment;
     }
 
+    @Id
     @Basic(optional = false)
     @Column(name="MARRIED")
     public boolean isMarried() {
@@ -127,6 +130,7 @@ public class Person {
         this.married = married;
     }
 
+    @Id
     @Column(name="HOMEPAGE")
     public String getHomepage() {
         return homepage;
@@ -134,5 +138,18 @@ public class Person {
 
     public void setHomepage(String homepage) {
         this.homepage = homepage;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return getId() == person.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }
