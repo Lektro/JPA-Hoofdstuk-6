@@ -23,7 +23,11 @@ public class GetPerson {
             System.out.println(p.getFirstName());
             System.out.println(p.getLastName());
             System.out.println(p.getComment());
-            System.out.println(p.getAddress());
+            System.out.println(p.getAddress().getStreet());
+            System.out.println(p.getAddress().getNumber());
+            System.out.println(p.getAddress().getCity());
+            System.out.println(p.getAddress().getZipCode());
+            System.out.println(p.getAddress().getCountry());
 
             tx.commit();
         } finally {
