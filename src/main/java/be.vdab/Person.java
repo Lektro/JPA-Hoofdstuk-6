@@ -27,6 +27,7 @@ public class Person {
     @Column(name="AGE")
     private int age;
 
+    // @Temporal(TemporalType.DATE)
     @Column(name="BIRTHDAY")
     private LocalDate birthDay;
 
