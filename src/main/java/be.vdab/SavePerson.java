@@ -24,7 +24,7 @@ public class SavePerson {
             personOne.setGender(GenderType.MALE);
             personOne.setBirthDay(LocalDate.of(1989,07,26));
             personOne.setComment("Still need to upload a picture, it ain't over yet!");
-            // personOne.isMarried();
+            personOne.isMarried();
             personOne.setHomepage("www.ferienwohnungmosea.de");
 
             Person personTwo = new Person();
