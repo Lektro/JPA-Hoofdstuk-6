@@ -87,8 +87,8 @@ public class Person {
 
     @Transient
     public int getAge() {
-        LocalDate now = LocalDate.now();
-        int age = Math.toIntExact(ChronoUnit.YEARS.between(now, birthDay));
+        //LocalDate now = LocalDate.now();
+        //int age = Math.toIntExact(ChronoUnit.YEARS.between(now, birthDay));
         return age;
     }
 
