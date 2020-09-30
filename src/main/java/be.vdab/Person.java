@@ -27,7 +27,7 @@ public class Person {
     @Column(name="AGE")
     private int age;
 
-    // @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.DATE)
     @Column(name="BIRTHDAY")
     private LocalDate birthDay;
 
@@ -94,6 +94,7 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
+
 
     public LocalDate getBirthDay() {
         return birthDay;
